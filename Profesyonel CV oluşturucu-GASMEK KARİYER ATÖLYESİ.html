@@ -1,0 +1,2888 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GASMEK Kariyer Atölyesi | Profesyonel CV Oluşturucu</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e3a8a'/%3E%3Crect x='14' y='10' width='36' height='44' rx='5' fill='%23ffffff'/%3E%3Ccircle cx='25' cy='22' r='4.5' fill='%230d9488'/%3E%3Cpath d='M18.5 31c1.2-3 11.8-3 13 0' fill='%230d9488'/%3E%3Crect x='34' y='19' width='11' height='3' rx='1.5' fill='%231e3a8a'/%3E%3Crect x='34' y='25' width='8' height='2.5' rx='1.2' fill='%2364748b'/%3E%3Crect x='19' y='37' width='26' height='3' rx='1.5' fill='%23cbd5e1'/%3E%3Crect x='19' y='43' width='20' height='3' rx='1.5' fill='%23cbd5e1'/%3E%3Ccircle cx='47' cy='47' r='9' fill='%23f59e0b'/%3E%3Cpath d='M43 47l3 3 5-6' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+    <style>
+        /* ==========================================================================
+           1. TEMEL DEĞİŞKENLER VE GENEL STİLLER
+           ========================================================================== */
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --secondary: #0d9488;
+            --accent: #f59e0b;
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --danger: #dc2626;
+            --success: #16a34a;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.15);
+            --radius: 12px;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-serif: Georgia, "Times New Roman", Times, serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ==========================================================================
+           2. ÜST BANNER VE İŞ ARAMA / KARİYER TEMALI ANİMASYONLAR
+           ========================================================================== */
+        .hero-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0f766e 100%);
+            color: #ffffff;
+            padding: 2.5rem 1.5rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0.14;
+        }
+
+        .float-item {
+            position: absolute;
+            animation: floatUpDown 7s ease-in-out infinite;
+        }
+        .float-item:nth-child(1) { top: 15%; left: 6%; animation-delay: 0s; }
+        .float-item:nth-child(2) { top: 60%; left: 12%; animation-delay: 1.5s; }
+        .float-item:nth-child(3) { top: 20%; right: 8%; animation-delay: 2.5s; }
+        .float-item:nth-child(4) { top: 65%; right: 15%; animation-delay: 1s; }
+        .float-item:nth-child(5) { top: 10%; left: 48%; animation-delay: 3.2s; }
+
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(6deg); }
+        }
+
+        .hero-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fde68a;
+        }
+
+        .hero-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.55rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #e2e8f0;
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-illustration {
+            width: 320px;
+            max-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .anim-magnifier {
+            transform-origin: center;
+            animation: scanResume 4s ease-in-out infinite;
+        }
+        @keyframes scanResume {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            35% { transform: translate(18px, 22px) rotate(8deg); }
+            70% { transform: translate(-10px, 35px) rotate(-5deg); }
+        }
+
+        .anim-step-1 { animation: stepGlow 3s infinite 0s; }
+        .anim-step-2 { animation: stepGlow 3s infinite 0.6s; }
+        .anim-step-3 { animation: stepGlow 3s infinite 1.2s; }
+        @keyframes stepGlow {
+            0%, 100% { opacity: 0.65; }
+            50% { opacity: 1; }
+        }
+
+        .anim-check {
+            stroke-dasharray: 40;
+            stroke-dashoffset: 40;
+            animation: drawCheck 3s ease forwards infinite;
+        }
+        @keyframes drawCheck {
+            0%, 20% { stroke-dashoffset: 40; }
+            50%, 90% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 40; }
+        }
+
+        /* ==========================================================================
+           3. BUTONLAR VE BİLDİRİM KUTUSU
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        .btn-primary {
+            background: var(--primary-light);
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        .btn-primary:hover { background: #1d4ed8; }
+
+        .btn-success {
+            background: var(--success);
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+        }
+        .btn-success:hover { background: #15803d; }
+
+        .btn-accent {
+            background: var(--accent);
+            color: #0f172a;
+        }
+        .btn-accent:hover { background: #d97706; color: #fff; }
+
+        .btn-outline {
+            background: #ffffff;
+            color: var(--text-main);
+            border: 1.5px solid var(--border-color);
+        }
+        .btn-outline:hover { background: #f8fafc; border-color: #94a3b8; }
+
+        .btn-ghost-light {
+            background: rgba(255,255,255,0.14);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-ghost-light:hover { background: rgba(255,255,255,0.24); }
+
+        .btn-danger-sm {
+            background: #fee2e2;
+            color: var(--danger);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+        .btn-danger-sm:hover { background: #fecaca; }
+
+        .btn-lg {
+            padding: 14px 28px;
+            font-size: 1.08rem;
+            border-radius: 10px;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 14px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            z-index: 9999;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 4px solid var(--secondary);
+            max-width: 90vw;
+        }
+        .toast-msg.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+           4. ANA KONTEYNER VE FORM EKRANI
+           ========================================================================== */
+        .main-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            margin: -1.8rem auto 2.5rem;
+            padding: 0 1rem;
+            flex: 1;
+            position: relative;
+            z-index: 5;
+        }
+
+        .form-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+            animation: fadeInSlide 0.4s ease;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.85rem;
+            margin-bottom: 1.35rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #eff6ff;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            background: #f0f9ff;
+            border-left: 3.5px solid var(--secondary);
+            color: #334155;
+            padding: 9px 13px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.84rem;
+            line-height: 1.45;
+            margin-bottom: 1.15rem;
+        }
+
+        .section-tip svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .section-tip strong {
+            color: var(--primary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 13px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background: #f8fafc;
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 85px;
+        }
+
+        /* ==========================================================================
+           5. FOTOĞRAF YÜKLEME KUTUSU (SÜRÜKLE-BIRAK & ÖNİZLEME)
+           ========================================================================== */
+        .personal-top-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 1.75rem;
+            align-items: start;
+        }
+
+        .photo-upload-box {
+            border: 2px dashed #94a3b8;
+            border-radius: 12px;
+            background: #f8fafc;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 235px;
+        }
+
+        .photo-upload-box:hover,
+        .photo-upload-box.dragover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .photo-preview-frame {
+            width: 130px;
+            height: 155px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            border: 2px solid #cbd5e1;
+            position: relative;
+        }
+
+        .photo-preview-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .photo-hint {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .photo-status-msg {
+            margin-top: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 6px 8px;
+            border-radius: 6px;
+            display: none;
+            line-height: 1.35;
+            text-align: center;
+        }
+        .photo-status-msg.error {
+            display: block;
+            background: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+        .photo-status-msg.success {
+            display: block;
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .photo-remove-btn {
+            margin-top: 8px;
+            background: #fee2e2;
+            color: var(--danger);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+        }
+        .photo-remove-btn:hover { background: #fecaca; }
+
+        /* Dinamik Tekrarlayan Kartlar */
+        .dynamic-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.15rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .dynamic-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.85rem;
+        }
+
+        .dynamic-item-badge {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #dbeafe;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* Beceriler Etiketleri */
+        .preset-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .skill-chip {
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: #f1f5f9;
+            color: #334155;
+            border: 1.5px solid #cbd5e1;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-chip:hover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .skill-chip.selected {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .custom-skill-row {
+            display: flex;
+            gap: 8px;
+            max-width: 480px;
+        }
+
+        .selected-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        .active-skill-tag {
+            background: #0d9488;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .active-skill-tag button {
+            background: rgba(255,255,255,0.25);
+            border: none;
+            color: #fff;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .bottom-cta-bar {
+            background: #ffffff;
+            border-radius: var(--radius);
+            padding: 1.25rem 1.75rem;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ==========================================================================
+           6. ÖNİZLEME EKRANI VE ŞABLON SEÇİCİ
+           ========================================================================== */
+        #preview-section {
+            display: none;
+            animation: fadeInSlide 0.4s ease;
+        }
+
+        .preview-toolbar {
+            background: #ffffff;
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .toolbar-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .template-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 10px;
+        }
+
+        .tpl-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .tpl-card:hover {
+            border-color: #94a3b8;
+            background: #ffffff;
+        }
+
+        .tpl-card.active {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.15);
+        }
+
+        .tpl-swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+
+        .tpl-info strong {
+            display: block;
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+        .tpl-info span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .a4-viewport {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #cv-sheet {
+            width: 210mm;
+            min-height: 297mm;
+            background: #ffffff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+            color: #1e293b;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+           7. BEŞ POPÜLER CV ŞABLONU TASARIMLARI (A4 İÇİ STİLLER)
+           ========================================================================== */
+        .cv-photo-img {
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            flex-shrink: 0;
+        }
+        .cv-section-block {
+            margin-bottom: 13px;
+        }
+        .cv-item-row {
+            margin-bottom: 8px;
+        }
+        .cv-item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 9.8pt;
+        }
+        .cv-date-pill {
+            font-size: 8.5pt;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .cv-item-sub {
+            font-size: 9pt;
+            font-weight: 600;
+            margin-top: 1px;
+        }
+        .cv-item-desc {
+            font-size: 8.9pt;
+            line-height: 1.48;
+            color: #334155;
+            white-space: pre-line;
+            margin-top: 2px;
+        }
+
+        /* --- ŞABLON 1: KLASİK KURUMSAL (LACİVERT & MAVİ) --- */
+        .tpl-classic {
+            padding: 16mm 18mm;
+            font-family: var(--font-sans);
+        }
+        .tpl-classic .c-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 14px;
+            margin-bottom: 15px;
+        }
+        .tpl-classic .cv-photo-img {
+            width: 96px;
+            height: 116px;
+            border-radius: 6px;
+            border: 2px solid #1e3a8a;
+        }
+        .tpl-classic .c-name {
+            font-size: 21pt;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.15;
+        }
+        .tpl-classic .c-role {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 3px 0 8px;
+        }
+        .tpl-classic .c-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 14px;
+            font-size: 8.6pt;
+            color: #334155;
+        }
+        .tpl-classic .c-sec-title {
+            font-size: 10.8pt;
+            font-weight: 800;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border-bottom: 1.5px solid #bfdbfe;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+        .tpl-classic .c-skill-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1e3a8a;
+            border: 1px solid #bfdbfe;
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-size: 8.4pt;
+            font-weight: 600;
+            margin: 0 5px 5px 0;
+        }
+
+        /* --- ŞABLON 2: MODERN İKİ SÜTUN (ANTRASİT & TURKUAZ) --- */
+        .tpl-modern {
+            display: grid;
+            grid-template-columns: 68mm 1fr;
+            min-height: 297mm;
+            font-family: var(--font-sans);
+        }
+        .tpl-modern .m-sidebar {
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 15mm 7mm;
+        }
+        .tpl-modern .cv-photo-img {
+            width: 112px;
+            height: 132px;
+            border-radius: 10px;
+            border: 3px solid #14b8a6;
+            margin: 0 auto 14px;
+        }
+        .tpl-modern .m-side-title {
+            font-size: 9.8pt;
+            font-weight: 800;
+            color: #2dd4bf;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 4px;
+            margin: 14px 0 8px;
+        }
+        .tpl-modern .m-contact-item {
+            font-size: 8.4pt;
+            margin-bottom: 6px;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+        .tpl-modern .m-contact-item strong {
+            display: block;
+            color: #94a3b8;
+            font-size: 7.6pt;
+            text-transform: uppercase;
+        }
+        .tpl-modern .m-skill-pill {
+            display: inline-block;
+            background: rgba(20, 184, 166, 0.18);
+            border: 1px solid rgba(45, 212, 191, 0.4);
+            color: #ccfbf1;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 8pt;
+            margin: 0 4px 5px 0;
+        }
+        .tpl-modern .m-main {
+            padding: 15mm 14mm;
+            background: #ffffff;
+        }
+        .tpl-modern .m-name {
+            font-size: 21pt;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.15;
+        }
+        .tpl-modern .m-role {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #0d9488;
+            margin: 3px 0 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .tpl-modern .m-sec-title {
+            font-size: 10.6pt;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            border-left: 4px solid #0d9488;
+            padding-left: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* --- ŞABLON 3: MİNİMALİST & ATS UYUMLU (SİYAH-BEYAZ TİPOGRAFİK) --- */
+        .tpl-minimal {
+            padding: 16mm 19mm;
+            font-family: var(--font-serif);
+            color: #111827;
+        }
+        .tpl-minimal .min-header {
+            text-align: center;
+            border-bottom: 1.5px solid #111827;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .tpl-minimal .cv-photo-img {
+            width: 86px;
+            height: 104px;
+            border-radius: 4px;
+            border: 1px solid #374151;
+            margin: 0 auto 8px;
+        }
+        .tpl-minimal .min-name {
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .tpl-minimal .min-role {
+            font-size: 11pt;
+            font-style: italic;
+            color: #374151;
+            margin: 3px 0 6px;
+        }
+        .tpl-minimal .min-meta {
+            font-size: 8.6pt;
+            color: #374151;
+            font-family: var(--font-sans);
+        }
+        .tpl-minimal .min-sec-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #9ca3af;
+            padding-bottom: 2px;
+            margin-bottom: 7px;
+        }
+        .tpl-minimal .cv-item-desc {
+            font-family: var(--font-sans);
+            color: #1f2937;
+        }
+
+        /* --- ŞABLON 4: YARATICI & DİNAMİK (BORDO & ALTIN) --- */
+        .tpl-creative {
+            font-family: var(--font-sans);
+        }
+        .tpl-creative .cr-banner {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+            color: #ffffff;
+            padding: 14mm 18mm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            border-bottom: 5px solid #f59e0b;
+        }
+        .tpl-creative .cv-photo-img {
+            width: 98px;
+            height: 118px;
+            border-radius: 10px;
+            border: 3px solid #f59e0b;
+        }
+        .tpl-creative .cr-name {
+            font-size: 21pt;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+        }
+        .tpl-creative .cr-role {
+            font-size: 11.5pt;
+            color: #fde68a;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .tpl-creative .cr-meta {
+            font-size: 8.8pt;
+            color: #fee2e2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+        }
+        .tpl-creative .cr-body {
+            padding: 14mm 18mm;
+        }
+        .tpl-creative .cr-sec-title {
+            font-size: 11pt;
+            font-weight: 800;
+            color: #7f1d1d;
+            background: #fef2f2;
+            border-left: 4px solid #f59e0b;
+            padding: 5px 10px;
+            margin-bottom: 9px;
+            text-transform: uppercase;
+        }
+        .tpl-creative .cr-skill {
+            display: inline-block;
+            background: #7f1d1d;
+            color: #ffffff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 8.5pt;
+            font-weight: 600;
+            margin: 0 5px 5px 0;
+        }
+
+        /* --- ŞABLON 5: YÖNETİCİ & PRESTİJ (KOYU ZÜMRÜT YEŞİLİ & GRİ) --- */
+        .tpl-executive {
+            padding: 16mm 18mm;
+            border-top: 10px solid #065f46;
+            font-family: var(--font-sans);
+        }
+        .tpl-executive .ex-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #065f46;
+            margin-bottom: 15px;
+        }
+        .tpl-executive .cv-photo-img {
+            width: 96px;
+            height: 116px;
+            border-radius: 4px;
+            border: 2px solid #065f46;
+        }
+        .tpl-executive .ex-name {
+            font-size: 21pt;
+            font-weight: 800;
+            color: #064e3b;
+        }
+        .tpl-executive .ex-role {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #047857;
+            margin-bottom: 8px;
+        }
+        .tpl-executive .ex-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 4px 18px;
+            font-size: 8.8pt;
+            color: #374151;
+        }
+        .tpl-executive .ex-two-col {
+            display: grid;
+            grid-template-columns: 1fr 64mm;
+            gap: 16px;
+        }
+        .tpl-executive .ex-sec-title {
+            font-size: 10.8pt;
+            font-weight: 800;
+            color: #065f46;
+            text-transform: uppercase;
+            border-bottom: 1.5px solid #a7f3d0;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+        .tpl-executive .ex-side-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 11px;
+            margin-bottom: 12px;
+        }
+
+        /* ==========================================================================
+           8. ALT BİLGİ (FOOTER)
+           ========================================================================== */
+        .app-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.35rem 1rem;
+            font-size: 0.92rem;
+            margin-top: auto;
+            border-top: 3px solid var(--secondary);
+        }
+
+        .app-footer strong {
+            color: #f8fafc;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        /* ==========================================================================
+           9. RESPONSIVE DÜZENLEMELER
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-actions { justify-content: center; }
+            .hero-illustration { width: 240px; }
+            .personal-top-layout {
+                grid-template-columns: 1fr;
+            }
+            .photo-upload-box {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+            .a4-viewport {
+                justify-content: flex-start;
+            }
+        }
+
+        /* ==========================================================================
+           10. PDF İNDİRME (@MEDIA PRINT) KURALLARI
+           ========================================================================== */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+            html, body {
+                background: #ffffff !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .hero-banner,
+            #form-section,
+            .preview-toolbar,
+            .app-footer,
+            .toast-msg {
+                display: none !important;
+            }
+            .main-wrapper {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            #preview-section {
+                display: block !important;
+            }
+            .a4-viewport {
+                overflow: visible !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+            #cv-sheet {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 210mm !important;
+                min-height: 297mm !important;
+                border: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================================================================
+         ÜST KARŞILAMA ALANI & KARİYER ANİMASYONLARI
+         ====================================================================== -->
+    <header class="hero-banner">
+        <div class="floating-shapes" aria-hidden="true">
+            <svg class="float-item" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            </svg>
+            <svg class="float-item" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <svg class="float-item" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <svg class="float-item" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+            <svg class="float-item" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+            </svg>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                    GASMEK Bilgisayar İşletmenliği Kariyer Atölyesi
+                </div>
+                <h1 class="hero-title">Kariyerinize Güçlü Bir Başlangıç Yapın: Profesyonel CV Oluşturucu</h1>
+                <p class="hero-subtitle">
+                    Bilgilerinizi adım adım girin, fotoğrafınızı ekleyin, en popüler 5 profesyonel özgeçmiş şablonundan dilediğinizi seçin ve tek tıkla A4 PDF olarak bilgisayarınıza indirin.
+                </p>
+                <div class="hero-actions">
+                    <button type="button" class="btn btn-accent" onclick="fillSampleData()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/>
+                        </svg>
+                        Örnek Veri Doldur
+                    </button>
+                    <button type="button" class="btn btn-ghost-light" onclick="clearAllData()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                        Formu Temizle
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-illustration" aria-hidden="true">
+                <svg viewBox="0 0 320 220" width="100%" height="auto">
+                    <rect class="anim-step-1" x="25" y="165" width="42" height="35" rx="6" fill="#38bdf8" opacity="0.7"/>
+                    <rect class="anim-step-2" x="75" y="135" width="42" height="65" rx="6" fill="#2dd4bf" opacity="0.8"/>
+                    <rect class="anim-step-3" x="125" y="100" width="42" height="100" rx="6" fill="#fbbf24" opacity="0.9"/>
+                    <path d="M35 145 L145 75 M145 75 L125 75 M145 75 L142 93" stroke="#fde68a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+                    <g transform="translate(175, 22)">
+                        <rect x="0" y="0" width="115" height="155" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+                        <circle cx="30" cy="30" r="14" fill="#dbeafe"/>
+                        <circle cx="30" cy="26" r="5" fill="#2563eb"/>
+                        <path d="M21 38 Q30 31 39 38" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+                        <rect x="52" y="20" width="48" height="7" rx="3.5" fill="#1e3a8a"/>
+                        <rect x="52" y="32" width="34" height="5" rx="2.5" fill="#0d9488"/>
+                        <rect x="16" y="58" width="83" height="6" rx="3" fill="#cbd5e1"/>
+                        <rect x="16" y="71" width="70" height="6" rx="3" fill="#e2e8f0"/>
+                        <rect x="16" y="84" width="78" height="6" rx="3" fill="#e2e8f0"/>
+                        <rect x="16" y="104" width="83" height="6" rx="3" fill="#cbd5e1"/>
+                        <rect x="16" y="117" width="62" height="6" rx="3" fill="#e2e8f0"/>
+                        <circle cx="92" cy="134" r="14" fill="#16a34a"/>
+                        <path class="anim-check" d="M85 134 L90 139 L99 129" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </g>
+
+                    <g class="anim-magnifier">
+                        <circle cx="215" cy="82" r="24" fill="rgba(56, 189, 248, 0.2)" stroke="#f59e0b" stroke-width="4.5"/>
+                        <line x1="232" y1="99" x2="250" y2="117" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         ANA ÇALIŞMA ALANI
+         ====================================================================== -->
+    <main class="main-wrapper">
+
+        <!-- AŞAMA 1: BİLGİ GİRİŞ FORMU -->
+        <section id="form-section">
+
+            <!-- 1. KİŞİSEL BİLGİLER & FOTOĞRAF -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </span>
+                        1. Kişisel Bilgiler & Vesikalık Fotoğraf
+                    </div>
+                </div>
+
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Sade arka planlı, güncel ve resmi bir fotoğraf seçin. E-posta adresiniz ad-soyad içeren sade bir adres olmalı; T.C. kimlik numarası ve açık ev adresi CV'ye yazılmaz.</span>
+                </div>
+
+                <div class="personal-top-layout">
+                    <div>
+                        <div class="photo-upload-box" id="photo-drop-zone" onclick="document.getElementById('photo-input').click()">
+                            <input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp" hidden onchange="handlePhotoSelect(event)">
+                            <div class="photo-preview-frame" id="photo-preview-container">
+                                <svg id="photo-placeholder-svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <img id="photo-preview-img" src="" alt="CV Fotoğrafı" style="display:none;">
+                            </div>
+                            <strong style="font-size:0.88rem; color:var(--primary); margin-bottom:4px;">Fotoğraf Ekle / Değiştir</strong>
+                            <span class="photo-hint">Tıklayın veya resmi sürükleyin (JPG, PNG, WEBP • Maks. 10 MB)</span>
+                        </div>
+                        <div id="photo-status-box" class="photo-status-msg"></div>
+                        <div style="text-align:center;">
+                            <button type="button" id="photo-remove-btn" class="photo-remove-btn" onclick="removePhoto()">Fotoğrafı Kaldır</button>
+                        </div>
+                    </div>
+                    <!-- Kişisel Form Alanları -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Adınız ve Soyadınız *</label>
+                            <input type="text" id="fullName" placeholder="Örn: Ayşe Yılmaz" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">Ünvan (İsteğe Bağlı)</label>
+                            <input type="text" id="jobTitle" placeholder="Örn: Bilgisayar İşletmeni / Büro Personeli" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="birthDate">Doğum Tarihi / Yılı</label>
+                            <input type="text" id="birthDate" placeholder="Örn: 15.04.1995" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon Numarası *</label>
+                            <input type="tel" id="phone" placeholder="Örn: 0555 123 45 67" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Posta Adresi *</label>
+                            <input type="email" id="email" placeholder="Örn: ayse.yilmaz@ornek.com" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Şehir / İlçe</label>
+                            <input type="text" id="city" placeholder="Örn: Gaziantep / Şahinbey" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="driverLicense">Ehliyet Sınıfı</label>
+                            <input type="text" id="driverLicense" placeholder="Örn: B Sınıfı (Aktif Araç Kullanabilir)" oninput="saveToStorage()">
+                        </div>
+                        <div class="form-group">
+                            <label for="militaryStatus">Askerlik Durumu</label>
+                            <select id="militaryStatus" onchange="saveToStorage()">
+                                <option value="">Belirtmek İstemiyorum</option>
+                                <option value="Yapıldı">Yapıldı</option>
+                                <option value="Tecilli">Tecilli</option>
+                                <option value="Muaf">Muaf</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. HAKKIMDA / KARİYER HEDEFİ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                        </span>
+                        2. Hakkımda & Kariyer Hedefi
+                    </div>
+                    <button type="button" class="btn btn-outline" style="font-size:0.85rem; padding:6px 12px;" onclick="insertSampleSummary()">
+                        + Hazır Örnek Metin Ekle
+                    </button>
+                </div>
+
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Uzun paragraflar yerine 2-3 cümleyle güçlü yönlerinizi, aldığınız eğitimi ve başvurduğunuz kuruma katacağınız değeri net biçimde özetleyin.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="summary">Kısa Özgeçmiş Özeti (Kendinizi ve hedeflerinizi 2-3 cümleyle tanıtın)</label>
+                    <textarea id="summary" rows="3" placeholder="Örn: MEB onaylı Bilgisayar İşletmenliği eğitimini başarıyla tamamlamış, Microsoft Office programlarına hakim, dikkatli ve ekip çalışmasına yatkın bir adayım..." oninput="saveToStorage()"></textarea>
+                </div>
+            </div>
+
+            <!-- 3. İŞ DENEYİMİ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                            </svg>
+                        </span>
+                        3. İş Deneyimi & Stajlar
+                    </div>
+                    <button type="button" class="btn btn-primary" style="font-size:0.85rem; padding:7px 14px;" onclick="addExperience()">
+                        + Yeni Deneyim Ekle
+                    </button>
+                </div>
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> En son çalıştığınız işten eskiye doğru (sondan başa) sıralayın. Deneyiminiz yoksa staj veya gönüllü çalışmalarınızı yazabilir, yoksa boş bırakabilirsiniz.</span>
+                </div>
+                <div id="experience-list"></div>
+            </div>
+
+            <!-- 4. EĞİTİM BİLGİLERİ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </span>
+                        4. Eğitim Bilgileri
+                    </div>
+                    <button type="button" class="btn btn-primary" style="font-size:0.85rem; padding:7px 14px;" onclick="addEducation()">
+                        + Yeni Eğitim Ekle
+                    </button>
+                </div>
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Eğitimler sondan başa (en son mezun olunan okul en üstte) yazılmalıdır. Lise ve üzeri eğitimler eklenir; ilkokul ve ortaokul bilgileri yazılmaz.</span>
+                </div>
+                <div id="education-list"></div>
+            </div>
+
+            <!-- 5. BİLGİSAYAR VE MESLEKİ BECERİLER -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </span>
+                        5. Bilgisayar ve Mesleki Beceriler
+                    </div>
+                </div>
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Sadece gerçekten kullanabildiğiniz ve iş görüşmesinde gösterebileceğiniz programları seçin. Hazır etiketlere tıklayabilir veya yeni beceri ekleyebilirsiniz.</span>
+                </div>
+                <div class="preset-skills" id="preset-skills-container"></div>
+
+                <div class="custom-skill-row">
+                    <input type="text" id="custom-skill-input" placeholder="Özel beceri yazın (Örn: Ön Muhasebe, Logo Go3)" onkeypress="if(event.key==='Enter'){event.preventDefault(); addCustomSkill();}">
+                    <button type="button" class="btn btn-primary" onclick="addCustomSkill()">Ekle</button>
+                </div>
+
+                <div class="selected-skills-list" id="selected-skills-container"></div>
+            </div>
+
+            <!-- 6. SERTİFİKALAR & KURSLAR -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                            </svg>
+                        </span>
+                        6. Sertifikalar & Kurslar
+                    </div>
+                    <button type="button" class="btn btn-primary" style="font-size:0.85rem; padding:7px 14px;" onclick="addCertificate()">
+                        + Yeni Sertifika Ekle
+                    </button>
+                </div>
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Başvurduğunuz alanla ilgili, resmi geçerliliği olan (MEB, GASMEK vb.) kurs ve sertifikaları en yeniden eskiye doğru ekleyin.</span>
+                </div>
+                <div id="certificate-list"></div>
+            </div>
+
+            <!-- 7. YABANCI DİL BİLGİSİ (DİNAMİK EKLE / SİL) -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </span>
+                        7. Yabancı Dil Bilgisi
+                    </div>
+                    <button type="button" class="btn btn-primary" style="font-size:0.85rem; padding:7px 14px;" onclick="addLanguage()">
+                        + Yeni Yabancı Dil Ekle
+                    </button>
+                </div>
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Bildiğiniz yabancı dilleri gerçek seviyenizle dürüstçe belirtin; birden fazla dil ekleyebilirsiniz.</span>
+                </div>
+                <div id="language-list"></div>
+            </div>
+
+            <!-- 8. REFERANSLAR (DİNAMİK EKLE / SİL) -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </span>
+                        8. Referanslar
+                    </div>
+                    <button type="button" class="btn btn-primary" style="font-size:0.85rem; padding:7px 14px;" onclick="addReference()">
+                        + Yeni Referans Ekle
+                    </button>
+                </div>
+                <div class="section-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span><strong>İpucu:</strong> Aile veya akraba dışından, sizi iş ya da eğitim hayatınızda tanıyan kişileri önceden izinlerini alarak ekleyin (isteğe bağlıdır).</span>
+                </div>
+                <div id="reference-list"></div>
+            </div>
+
+            <!-- ALT AKSİYON ÇUBUĞU: CV'Mİ ÖNİZLE -->
+            <div class="bottom-cta-bar">
+                <div>
+                    <strong style="font-size:1.05rem; color:var(--primary); display:block;">Bilgilerinizi tamamladınız mı?</strong>
+                    <span style="font-size:0.88rem; color:var(--text-muted);">5 popüler CV şablonunu canlı incelemek ve PDF indirmek için ilerleyin.</span>
+                </div>
+                <button type="button" class="btn btn-success btn-lg" onclick="openPreview()">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    CV'mi Önizle
+                </button>
+            </div>
+
+        </section>
+
+        <!-- AŞAMA 2: CV ÖNİZLEME & ŞABLON SEÇİM EKRANI -->
+        <section id="preview-section">
+            <div class="preview-toolbar">
+                <div class="toolbar-top">
+                    <button type="button" class="btn btn-outline" onclick="backToForm()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+                        </svg>
+                        Bilgileri Düzenle
+                    </button>
+
+                    <div style="text-align:center;">
+                        <strong style="font-size:1.05rem; color:var(--primary);">A4 Özgeçmiş Önizleme & Şablon Seçimi</strong>
+                        <div style="font-size:0.82rem; color:var(--text-muted);">Aşağıdan dilediğiniz şablonu seçip kontrol ettikten sonra PDF olarak kaydedin.</div>
+                    </div>
+
+                    <button type="button" class="btn btn-success btn-lg" onclick="downloadPDF()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        PDF Olarak İndir
+                    </button>
+                </div>
+
+                <!-- 5 Popüler Şablon Seçici Kartlar -->
+                <div class="template-selector-grid">
+                    <button type="button" class="tpl-card active" data-tpl="classic" onclick="selectTemplate('classic', this)">
+                        <span class="tpl-swatch" style="background: linear-gradient(135deg, #1e3a8a 50%, #eff6ff 50%);"></span>
+                        <span class="tpl-info">
+                            <strong>1. Klasik Kurumsal</strong>
+                            <span>Lacivert • Resmi Düzen</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="tpl-card" data-tpl="modern" onclick="selectTemplate('modern', this)">
+                        <span class="tpl-swatch" style="background: linear-gradient(90deg, #1e293b 45%, #14b8a6 45%);"></span>
+                        <span class="tpl-info">
+                            <strong>2. Modern İki Sütun</strong>
+                            <span>Antrasit & Turkuaz</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="tpl-card" data-tpl="minimal" onclick="selectTemplate('minimal', this)">
+                        <span class="tpl-swatch" style="background: linear-gradient(135deg, #111827 50%, #ffffff 50%);"></span>
+                        <span class="tpl-info">
+                            <strong>3. Minimalist & ATS</strong>
+                            <span>Siyah-Beyaz Tipografik</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="tpl-card" data-tpl="creative" onclick="selectTemplate('creative', this)">
+                        <span class="tpl-swatch" style="background: linear-gradient(180deg, #7f1d1d 55%, #f59e0b 55%);"></span>
+                        <span class="tpl-info">
+                            <strong>4. Yaratıcı & Dinamik</strong>
+                            <span>Bordo & Altın Vurgulu</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="tpl-card" data-tpl="executive" onclick="selectTemplate('executive', this)">
+                        <span class="tpl-swatch" style="background: linear-gradient(135deg, #065f46 50%, #f0fdf4 50%);"></span>
+                        <span class="tpl-info">
+                            <strong>5. Yönetici & Prestij</strong>
+                            <span>Koyu Zümrüt & Gri</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- A4 CV Çıktı Kağıdı -->
+            <div class="a4-viewport">
+                <div id="cv-sheet" class="tpl-classic"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Bildirim Kutusu -->
+    <div id="toast" class="toast-msg"></div>
+
+    <!-- ======================================================================
+         JAVASCRIPT UYGULAMA MANTIĞI (TAMAMEN ÇEVRİMDIŞI)
+         ====================================================================== -->
+    <script>
+        // Hazır Bilgisayar İşletmenliği Becerileri
+        const PRESET_SKILLS = [
+            "Microsoft Word",
+            "Microsoft Excel",
+            "Microsoft PowerPoint",
+            "Hızlı Klavye Kullanımı",
+            "E-Posta & İnternet Yönetimi",
+            "Arşivleme ve Dosyalama",
+            "Resmi Yazışma Kuralları",
+            "E-Devlet ve Büro Yönetimi",
+            "İşletim Sistemleri (Windows)",
+            "Dijital Veri Girişi ve Raporlama",
+            "Ofis Cihazları Kullanımı"
+        ];
+
+        const LANGUAGE_LEVELS = [
+            "Başlangıç (A1-A2)",
+            "Orta (B1-B2)",
+            "İyi (C1)",
+            "İleri / Akıcı (C2)"
+        ];
+
+        function createDefaultState() {
+            return {
+                photo: "",
+                fullName: "",
+                jobTitle: "",
+                phone: "",
+                email: "",
+                city: "",
+                birthDate: "",
+                driverLicense: "",
+                militaryStatus: "",
+                summary: "",
+                educations: [{ school: "", department: "", year: "" }],
+                experiences: [],
+                skills: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Hızlı Klavye Kullanımı"],
+                certificates: [{
+                    title: "MEB Onaylı Bilgisayar İşletmenliği Sertifikası",
+                    issuer: "GASMEK / Halk Eğitimi Merkezi",
+                    year: new Date().getFullYear().toString()
+                }],
+                languages: [{ name: "", level: "Başlangıç (A1-A2)" }],
+                references: [],
+                selectedTemplate: "classic"
+            };
+        }
+
+        // Uygulama Durumu (State)
+        let appState = createDefaultState();
+
+        // Sayfa Yüklendiğinde Başlat
+        window.addEventListener("DOMContentLoaded", () => {
+            loadFromStorage();
+            setupPhotoDragAndDrop();
+            renderAllFormElements();
+        });
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            if (!toast) return;
+            toast.textContent = message;
+            toast.classList.add("show");
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3400);
+        }
+
+        function escapeHTML(str) {
+            if (!str) return "";
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        /* ======================================================================
+           FOTOĞRAF YÜKLEME, SÜRÜKLE-BIRAK VE BOYUT OPTİMİZASYONU
+           ====================================================================== */
+        function setPhotoStatus(message, type) {
+            const box = document.getElementById("photo-status-box");
+            if (!box) return;
+            if (!message) {
+                box.textContent = "";
+                box.className = "photo-status-msg";
+                return;
+            }
+            box.textContent = message;
+            box.className = `photo-status-msg ${type}`;
+        }
+
+        function setupPhotoDragAndDrop() {
+            const dropZone = document.getElementById("photo-drop-zone");
+            if (!dropZone) return;
+
+            dropZone.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZone.classList.add("dragover");
+            });
+            dropZone.addEventListener("dragleave", () => {
+                dropZone.classList.remove("dragover");
+            });
+            dropZone.addEventListener("drop", (e) => {
+                e.preventDefault();
+                dropZone.classList.remove("dragover");
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    processImageFile(e.dataTransfer.files[0]);
+                }
+            });
+        }
+
+        function handlePhotoSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                processImageFile(file);
+            }
+            event.target.value = "";
+        }
+
+        function processImageFile(file) {
+            setPhotoStatus("", "");
+
+            const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+            if (!file.type || !allowedTypes.includes(file.type.toLowerCase())) {
+                const msg = "Geçersiz dosya formatı! Lütfen sadece JPG, PNG veya WEBP resim dosyası seçin.";
+                setPhotoStatus(msg, "error");
+                showToast(msg);
+                return;
+            }
+
+            const maxFileSize = 10 * 1024 * 1024; // 10 MB
+            if (file.size > maxFileSize) {
+                const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                const msg = `Seçilen resim çok büyük (${sizeMB} MB). Maksimum 10 MB boyutunda daha küçük bir resim ekleyin.`;
+                setPhotoStatus(msg, "error");
+                showToast(msg);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onerror = function() {
+                const msg = "Resim dosyası okunamadı. Lütfen farklı bir fotoğraf deneyin.";
+                setPhotoStatus(msg, "error");
+                showToast(msg);
+            };
+
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onerror = function() {
+                    const msg = "Bozuk veya desteklenmeyen görsel dosyası. Lütfen başka bir fotoğraf seçin.";
+                    setPhotoStatus(msg, "error");
+                    showToast(msg);
+                };
+
+                img.onload = function() {
+                    try {
+                        const origW = img.naturalWidth || img.width;
+                        const origH = img.naturalHeight || img.height;
+
+                        if (origW < 100 || origH < 100) {
+                            const msg = `Resim çözünürlüğü çok düşük (${origW}x${origH} px). Baskıda bulanık çıkmaması için en az 100x100 px boyutunda net bir fotoğraf seçin.`;
+                            setPhotoStatus(msg, "error");
+                            showToast(msg);
+                            return;
+                        }
+
+                        const MAX_DIM = 400;
+                        let targetW = origW;
+                        let targetH = origH;
+
+                        if (origW > MAX_DIM || origH > MAX_DIM) {
+                            if (origW >= origH) {
+                                targetW = MAX_DIM;
+                                targetH = Math.round((origH * MAX_DIM) / origW);
+                            } else {
+                                targetH = MAX_DIM;
+                                targetW = Math.round((origW * MAX_DIM) / origH);
+                            }
+                        }
+
+                        const canvas = document.createElement("canvas");
+                        canvas.width = targetW;
+                        canvas.height = targetH;
+                        const ctx = canvas.getContext("2d");
+
+                        ctx.fillStyle = "#ffffff";
+                        ctx.fillRect(0, 0, targetW, targetH);
+                        ctx.imageSmoothingEnabled = true;
+                        ctx.imageSmoothingQuality = "high";
+                        ctx.drawImage(img, 0, 0, targetW, targetH);
+
+                        const optimizedDataUrl = canvas.toDataURL("image/jpeg", 0.85);
+
+                        if (optimizedDataUrl.length > 600000) {
+                            const msg = "Görsel optimize edilmesine rağmen boyutu yüksek. Lütfen daha küçük bir fotoğraf seçin.";
+                            setPhotoStatus(msg, "error");
+                            showToast(msg);
+                            return;
+                        }
+
+                        appState.photo = optimizedDataUrl;
+                        updatePhotoUI();
+                        saveToStorage();
+                        setPhotoStatus(`Fotoğraf otomatik ayarlandı (${targetW}x${targetH} px)`, "success");
+                        showToast("Vesikalık fotoğraf otomatik boyutlandırıldı ve eklendi.");
+                    } catch (err) {
+                        const msg = "Fotoğraf işlenirken bir hata oluştu. Lütfen daha küçük bir resim deneyin.";
+                        setPhotoStatus(msg, "error");
+                        showToast(msg);
+                    }
+                };
+
+                img.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function updatePhotoUI() {
+            const img = document.getElementById("photo-preview-img");
+            const svg = document.getElementById("photo-placeholder-svg");
+            const removeBtn = document.getElementById("photo-remove-btn");
+
+            if (appState.photo) {
+                img.src = appState.photo;
+                img.style.display = "block";
+                svg.style.display = "none";
+                removeBtn.style.display = "inline-block";
+            } else {
+                img.src = "";
+                img.style.display = "none";
+                svg.style.display = "block";
+                removeBtn.style.display = "none";
+            }
+        }
+
+        function removePhoto() {
+            appState.photo = "";
+            document.getElementById("photo-input").value = "";
+            setPhotoStatus("", "");
+            updatePhotoUI();
+            saveToStorage();
+            showToast("Fotoğraf kaldırıldı.");
+        }
+
+        /* ======================================================================
+           DİNAMİK FORM LİSTELERİ (EĞİTİM, DENEYİM, SERTİFİKA, BECERİ, DİL, REFERANS)
+           ====================================================================== */
+        function renderAllFormElements() {
+            document.getElementById("fullName").value = appState.fullName || "";
+            document.getElementById("jobTitle").value = appState.jobTitle || "";
+            document.getElementById("phone").value = appState.phone || "";
+            document.getElementById("email").value = appState.email || "";
+            document.getElementById("city").value = appState.city || "";
+            document.getElementById("birthDate").value = appState.birthDate || "";
+            document.getElementById("driverLicense").value = appState.driverLicense || "";
+            document.getElementById("militaryStatus").value = appState.militaryStatus || "";
+            document.getElementById("summary").value = appState.summary || "";
+
+            updatePhotoUI();
+            renderEducations();
+            renderExperiences();
+            renderSkills();
+            renderCertificates();
+            renderLanguages();
+            renderReferences();
+        }
+
+        function addEducation(data = { school: "", department: "", year: "" }) {
+            appState.educations.push(data);
+            renderEducations();
+            saveToStorage();
+        }
+
+        function removeEducation(index) {
+            appState.educations.splice(index, 1);
+            renderEducations();
+            saveToStorage();
+        }
+
+        function updateEducation(index, field, value) {
+            if (appState.educations[index]) {
+                appState.educations[index][field] = value;
+                saveToStorage();
+            }
+        }
+
+        function renderEducations() {
+            const container = document.getElementById("education-list");
+            if (!Array.isArray(appState.educations) || appState.educations.length === 0) {
+                appState.educations = [{ school: "", department: "", year: "" }];
+            }
+            container.innerHTML = appState.educations.map((edu, idx) => `
+                <div class="dynamic-item">
+                    <div class="dynamic-item-header">
+                        <span class="dynamic-item-badge">Eğitim #${idx + 1}</span>
+                        ${appState.educations.length > 1 ? `<button type="button" class="btn btn-danger-sm" onclick="removeEducation(${idx})">Sil</button>` : ""}
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Okul / Üniversite Adı</label>
+                            <input type="text" value="${escapeHTML(edu.school)}" placeholder="Örn: Gaziantep Üniversitesi / Meslek Lisesi" oninput="updateEducation(${idx}, 'school', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Bölüm / Alan</label>
+                            <input type="text" value="${escapeHTML(edu.department)}" placeholder="Örn: Büro Yönetimi ve Yönetici Asistanlığı" oninput="updateEducation(${idx}, 'department', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Mezuniyet Yılı / Dönemi</label>
+                            <input type="text" value="${escapeHTML(edu.year)}" placeholder="Örn: 2018 - 2020" oninput="updateEducation(${idx}, 'year', this.value)">
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function addExperience(data = { company: "", role: "", period: "", desc: "" }) {
+            appState.experiences.push(data);
+            renderExperiences();
+            saveToStorage();
+        }
+
+        function removeExperience(index) {
+            appState.experiences.splice(index, 1);
+            renderExperiences();
+            saveToStorage();
+        }
+
+        function updateExperience(index, field, value) {
+            if (appState.experiences[index]) {
+                appState.experiences[index][field] = value;
+                saveToStorage();
+            }
+        }
+
+        function renderExperiences() {
+            const container = document.getElementById("experience-list");
+            if (!Array.isArray(appState.experiences) || appState.experiences.length === 0) {
+                appState.experiences = [];
+                container.innerHTML = "";
+                return;
+            }
+            container.innerHTML = appState.experiences.map((exp, idx) => `
+                <div class="dynamic-item">
+                    <div class="dynamic-item-header">
+                        <span class="dynamic-item-badge">İş Deneyimi #${idx + 1}</span>
+                        <button type="button" class="btn btn-danger-sm" onclick="removeExperience(${idx})">Sil</button>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Kurum / Şirket Adı</label>
+                            <input type="text" value="${escapeHTML(exp.company)}" placeholder="Örn: Yıldız Ticaret Ltd. Şti." oninput="updateExperience(${idx}, 'company', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Pozisyon / Görev</label>
+                            <input type="text" value="${escapeHTML(exp.role)}" placeholder="Örn: Ön Büro ve Veri Giriş Elemanı" oninput="updateExperience(${idx}, 'role', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Çalışma Tarihleri</label>
+                            <input type="text" value="${escapeHTML(exp.period)}" placeholder="Örn: Ocak 2022 - Devam Ediyor" oninput="updateExperience(${idx}, 'period', this.value)">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Görev Tanımı ve Sorumluluklar</label>
+                            <textarea rows="2" placeholder="Örn: Günlük evrak takibi, Excel tablolarının hazırlanması ve müşteri kayıtlarının sisteme girilmesi." oninput="updateExperience(${idx}, 'desc', this.value)">${escapeHTML(exp.desc)}</textarea>
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function togglePresetSkill(skill) {
+            const idx = appState.skills.indexOf(skill);
+            if (idx > -1) {
+                appState.skills.splice(idx, 1);
+            } else {
+                appState.skills.push(skill);
+            }
+            renderSkills();
+            saveToStorage();
+        }
+
+        function addCustomSkill() {
+            const input = document.getElementById("custom-skill-input");
+            const val = input.value.trim();
+            if (!val) return;
+            if (!appState.skills.includes(val)) {
+                appState.skills.push(val);
+                renderSkills();
+                saveToStorage();
+            }
+            input.value = "";
+        }
+
+        function removeSkill(index) {
+            appState.skills.splice(index, 1);
+            renderSkills();
+            saveToStorage();
+        }
+
+        function renderSkills() {
+            if (!Array.isArray(appState.skills)) appState.skills = [];
+            const presetContainer = document.getElementById("preset-skills-container");
+            presetContainer.innerHTML = PRESET_SKILLS.map(skill => {
+                const isSelected = appState.skills.includes(skill);
+                return `
+                    <span class="skill-chip ${isSelected ? "selected" : ""}" onclick="togglePresetSkill('${skill.replace(/'/g, "\\'")}')">
+                        ${isSelected ? "✓" : "+"} ${escapeHTML(skill)}
+                    </span>
+                `;
+            }).join("");
+
+            const selectedContainer = document.getElementById("selected-skills-container");
+            if (appState.skills.length === 0) {
+                selectedContainer.innerHTML = `<span style="font-size:0.85rem; color:var(--text-muted);">Henüz beceri seçilmedi.</span>`;
+            } else {
+                selectedContainer.innerHTML = appState.skills.map((skill, idx) => `
+                    <span class="active-skill-tag">
+                        ${escapeHTML(skill)}
+                        <button type="button" title="Kaldır" onclick="removeSkill(${idx})">×</button>
+                    </span>
+                `).join("");
+            }
+        }
+
+        function addCertificate(data = { title: "", issuer: "", year: "" }) {
+            appState.certificates.push(data);
+            renderCertificates();
+            saveToStorage();
+        }
+
+        function removeCertificate(index) {
+            appState.certificates.splice(index, 1);
+            renderCertificates();
+            saveToStorage();
+        }
+
+        function updateCertificate(index, field, value) {
+            if (appState.certificates[index]) {
+                appState.certificates[index][field] = value;
+                saveToStorage();
+            }
+        }
+
+        function renderCertificates() {
+            const container = document.getElementById("certificate-list");
+            if (appState.certificates.length === 0) {
+                appState.certificates.push({
+                    title: "MEB Onaylı Bilgisayar İşletmenliği Sertifikası",
+                    issuer: "GASMEK / Halk Eğitimi Merkezi",
+                    year: new Date().getFullYear().toString()
+                });
+            }
+            container.innerHTML = appState.certificates.map((cert, idx) => `
+                <div class="dynamic-item">
+                    <div class="dynamic-item-header">
+                        <span class="dynamic-item-badge">Sertifika #${idx + 1}</span>
+                        <button type="button" class="btn btn-danger-sm" onclick="removeCertificate(${idx})">Sil</button>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Sertifika / Kurs Adı</label>
+                            <input type="text" value="${escapeHTML(cert.title)}" placeholder="Örn: MEB Onaylı Bilgisayar İşletmenliği Sertifikası" oninput="updateCertificate(${idx}, 'title', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Veren Kurum</label>
+                            <input type="text" value="${escapeHTML(cert.issuer)}" placeholder="Örn: GASMEK / Milli Eğitim Bakanlığı" oninput="updateCertificate(${idx}, 'issuer', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Alındığı Yıl</label>
+                            <input type="text" value="${escapeHTML(cert.year)}" placeholder="Örn: 2026" oninput="updateCertificate(${idx}, 'year', this.value)">
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        // Yabancı Diller (Dinamik Ekle / Sil)
+        function addLanguage(data = { name: "", level: "Başlangıç (A1-A2)" }) {
+            appState.languages.push(data);
+            renderLanguages();
+            saveToStorage();
+        }
+
+        function removeLanguage(index) {
+            appState.languages.splice(index, 1);
+            renderLanguages();
+            saveToStorage();
+        }
+
+        function updateLanguage(index, field, value) {
+            appState.languages[index][field] = value;
+            saveToStorage();
+        }
+
+        function renderLanguages() {
+            const container = document.getElementById("language-list");
+            if (!Array.isArray(appState.languages)) {
+                appState.languages = [];
+            }
+            if (appState.languages.length === 0) {
+                container.innerHTML = `<p style="font-size:0.85rem; color:var(--text-muted); font-style:italic;">Henüz yabancı dil eklenmedi. Eklemek için "+ Yeni Yabancı Dil Ekle" butonunu kullanabilirsiniz.</p>`;
+                return;
+            }
+            container.innerHTML = appState.languages.map((lang, idx) => `
+                <div class="dynamic-item">
+                    <div class="dynamic-item-header">
+                        <span class="dynamic-item-badge">Yabancı Dil #${idx + 1}</span>
+                        <button type="button" class="btn btn-danger-sm" onclick="removeLanguage(${idx})">Sil</button>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Yabancı Dil Adı</label>
+                            <input type="text" value="${escapeHTML(lang.name)}" placeholder="Örn: İngilizce, Almanca, Arapça" oninput="updateLanguage(${idx}, 'name', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Seviye</label>
+                            <select onchange="updateLanguage(${idx}, 'level', this.value)">
+                                ${LANGUAGE_LEVELS.map(lvl => `<option value="${lvl}" ${lang.level === lvl ? "selected" : ""}>${lvl}</option>`).join("")}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        // Referanslar (Dinamik Ekle / Sil)
+        function addReference(data = { name: "", title: "", contact: "" }) {
+            appState.references.push(data);
+            renderReferences();
+            saveToStorage();
+        }
+
+        function removeReference(index) {
+            appState.references.splice(index, 1);
+            renderReferences();
+            saveToStorage();
+        }
+
+        function updateReference(index, field, value) {
+            appState.references[index][field] = value;
+            saveToStorage();
+        }
+
+        function renderReferences() {
+            const container = document.getElementById("reference-list");
+            if (!Array.isArray(appState.references)) {
+                appState.references = [];
+            }
+            if (appState.references.length === 0) {
+                container.innerHTML = `<p style="font-size:0.85rem; color:var(--text-muted); font-style:italic;">Henüz referans eklenmedi. Eklemek için "+ Yeni Referans Ekle" butonunu kullanabilirsiniz.</p>`;
+                return;
+            }
+            container.innerHTML = appState.references.map((ref, idx) => `
+                <div class="dynamic-item">
+                    <div class="dynamic-item-header">
+                        <span class="dynamic-item-badge">Referans #${idx + 1}</span>
+                        <button type="button" class="btn btn-danger-sm" onclick="removeReference(${idx})">Sil</button>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Ad Soyad</label>
+                            <input type="text" value="${escapeHTML(ref.name)}" placeholder="Örn: Mehmet Kaya" oninput="updateReference(${idx}, 'name', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>Kurum / Unvan</label>
+                            <input type="text" value="${escapeHTML(ref.title)}" placeholder="Örn: Marmara Lojistik - İdari İşler Müdürü" oninput="updateReference(${idx}, 'title', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>İletişim Bilgisi (Telefon / E-posta)</label>
+                            <input type="text" value="${escapeHTML(ref.contact)}" placeholder="Örn: 0533 987 65 43" oninput="updateReference(${idx}, 'contact', this.value)">
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        /* ======================================================================
+           VERİ SAKLAMA, ÖRNEK DOLDURMA VE TEMİZLEME
+           ====================================================================== */
+        function collectBasicFields() {
+            appState.fullName = document.getElementById("fullName").value.trim();
+            appState.jobTitle = document.getElementById("jobTitle").value.trim();
+            appState.phone = document.getElementById("phone").value.trim();
+            appState.email = document.getElementById("email").value.trim();
+            appState.city = document.getElementById("city").value.trim();
+            appState.birthDate = document.getElementById("birthDate").value.trim();
+            appState.driverLicense = document.getElementById("driverLicense").value.trim();
+            appState.militaryStatus = document.getElementById("militaryStatus").value;
+            appState.summary = document.getElementById("summary").value.trim();
+        }
+
+        function saveToStorage() {
+            collectBasicFields();
+            try {
+                localStorage.setItem("gasmek_cv_builder_v2", JSON.stringify(appState));
+            } catch (e) {
+                // Depolama kotası aşılırsa sessizce devam et
+            }
+        }
+
+        function mergeDefaults(parsed) {
+            const defaults = createDefaultState();
+            const merged = { ...defaults, ...(parsed || {}) };
+
+            if (!Array.isArray(merged.educations)) merged.educations = defaults.educations;
+            if (!Array.isArray(merged.experiences)) merged.experiences = [];
+            if (!Array.isArray(merged.skills)) merged.skills = defaults.skills;
+            if (!Array.isArray(merged.certificates)) merged.certificates = defaults.certificates;
+
+            // Eski string şemadan yeni dizi şemasına güvenli geçiş
+            if (typeof merged.languages === "string") {
+                merged.languages = merged.languages.trim()
+                    ? [{ name: merged.languages.trim(), level: "Orta (B1-B2)" }]
+                    : [];
+            } else if (!Array.isArray(merged.languages)) {
+                merged.languages = defaults.languages;
+            }
+
+            if (typeof merged.references === "string") {
+                merged.references = merged.references.trim()
+                    ? [{ name: merged.references.trim(), title: "", contact: "" }]
+                    : [];
+            } else if (!Array.isArray(merged.references)) {
+                merged.references = [];
+            }
+
+            return merged;
+        }
+
+        function loadFromStorage() {
+            try {
+                const raw = localStorage.getItem("gasmek_cv_builder_v2");
+                if (raw) {
+                    appState = mergeDefaults(JSON.parse(raw));
+                }
+            } catch (e) {
+                appState = createDefaultState();
+            }
+        }
+
+        function insertSampleSummary() {
+            const text = "MEB onaylı Bilgisayar İşletmenliği eğitimini başarıyla tamamlamış; Microsoft Word, Excel ve PowerPoint programlarını etkin biçimde kullanabilen, hızlı ve hatasız veri girişi yapabilen, iletişim becerileri güçlü ve sorumluluk sahibi bir adayım. Kurumunuzun ofis ve dijital iş süreçlerine değer katmayı hedefliyorum.";
+            document.getElementById("summary").value = text;
+            saveToStorage();
+            showToast("Hazır kariyer hedefi metni eklendi.");
+        }
+
+        function fillSampleData() {
+            appState = {
+                ...appState,
+                fullName: "Zeynep Demir",
+                jobTitle: "Bilgisayar İşletmeni & Büro Yönetimi Uzmanı",
+                phone: "0532 456 78 90",
+                email: "zeynep.demir@ornekposta.com",
+                city: "Gaziantep / Şahinbey",
+                birthDate: "12.05.1996",
+                driverLicense: "B Sınıfı",
+                militaryStatus: "",
+                summary: "MEB onaylı Bilgisayar İşletmenliği sertifikasına sahip; Microsoft Office (Word, Excel, PowerPoint) uygulamalarına ileri düzeyde hakim, resmi yazışma kurallarını bilen ve hızlı klavye kullanabilen disiplinli bir profesyonelim. Kurumsal iş süreçlerinde düzenli arşivleme ve dijital raporlama konularında katkı sağlamayı amaçlıyorum.",
+                educations: [
+                    { school: "Anadolu Üniversitesi", department: "Büro Yönetimi ve Yönetici Asistanlığı (Önlisans)", year: "2016 - 2018" },
+                    { school: "Şahinbey Ticaret Meslek Lisesi", department: "Bilişim Teknolojileri Alanı", year: "2011 - 2015" }
+                ],
+                experiences: [
+                    {
+                        company: "Gaziantep Lojistik ve Danışmanlık A.Ş.",
+                        role: "Ofis Asistanı ve Veri Giriş Sorumlusu",
+                        period: "Mart 2021 - Ocak 2025",
+                        desc: "• Günlük gelen-giden evrak kayıtlarının dijital ortamda arşivlenmesi.\n• Microsoft Excel üzerinde haftalık stok ve sevkiyat tablolarının hazırlanması.\n• E-Posta trafiğinin ve resmi yazışmaların koordine edilmesi."
+                    },
+                    {
+                        company: "Gaziantep Büyükşehir Belediyesi Halkla İlişkiler Birimi",
+                        role: "Stajyer Bilgisayar İşletmeni",
+                        period: "Haziran 2018 - Eylül 2018",
+                        desc: "• Vatandaş başvurularının bilgisayar sistemine hızlı ve hatasız kaydedilmesi ve ilgili birimlere yönlendirilmesi."
+                    }
+                ],
+                skills: [
+                    "Microsoft Word",
+                    "Microsoft Excel",
+                    "Microsoft PowerPoint",
+                    "Hızlı Klavye Kullanımı",
+                    "E-Posta & İnternet Yönetimi",
+                    "Arşivleme ve Dosyalama",
+                    "Resmi Yazışma Kuralları",
+                    "Dijital Veri Girişi ve Raporlama"
+                ],
+                certificates: [
+                    { title: "MEB Onaylı Bilgisayar İşletmenliği Sertifikası (160 Saat)", issuer: "GASMEK", year: "2026" },
+                    { title: "Etkili İletişim ve Zaman Yönetimi Katılım Belgesi", issuer: "GASMEK Kariyer Akademisi", year: "2024" }
+                ],
+                languages: [
+                    { name: "İngilizce", level: "Orta (B1-B2)" },
+                    { name: "Almanca", level: "Başlangıç (A1-A2)" }
+                ],
+                references: [
+                    { name: "Mehmet Kaya", title: "Gaziantep Lojistik - İdari İşler Müdürü", contact: "0533 987 65 43" },
+                    { name: "Selin Arslan", title: "Birim Koordinatörü", contact: "0542 321 12 34" }
+                ]
+            };
+            renderAllFormElements();
+            saveToStorage();
+            showToast("Örnek kursiyer bilgileri dolduruldu! Şimdi 'CV'mi Önizle' butonuna basabilirsiniz.");
+        }
+
+        function clearAllData() {
+            localStorage.removeItem("gasmek_cv_builder_v2");
+            const currentTpl = appState.selectedTemplate;
+            appState = createDefaultState();
+            appState.selectedTemplate = currentTpl;
+            document.getElementById("photo-input").value = "";
+            setPhotoStatus("", "");
+            renderAllFormElements();
+            showToast("Tüm form alanları temizlendi.");
+        }
+
+        /* ======================================================================
+           ÖNİZLEME VE 5 CV ŞABLONU RENDER MOTORU
+           ====================================================================== */
+        function openPreview() {
+            collectBasicFields();
+            if (!appState.fullName) {
+                showToast("Lütfen en azından 'Adınız ve Soyadınız' alanını doldurun.");
+                document.getElementById("fullName").focus();
+                return;
+            }
+            saveToStorage();
+            document.getElementById("form-section").style.display = "none";
+            document.getElementById("preview-section").style.display = "block";
+            renderCVSheet();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function backToForm() {
+            document.getElementById("preview-section").style.display = "none";
+            document.getElementById("form-section").style.display = "block";
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function selectTemplate(tplName, cardEl) {
+            appState.selectedTemplate = tplName;
+            saveToStorage();
+            document.querySelectorAll(".tpl-card").forEach(c => c.classList.remove("active"));
+            if (cardEl) cardEl.classList.add("active");
+            renderCVSheet();
+        }
+
+        function buildPdfFileName() {
+            const rawName = (appState.fullName || "").trim();
+            if (!rawName) return "gasmekcv_ozgecmis";
+            const sanitized = rawName
+                .replace(/\s+/g, "_")
+                .replace(/[\\/:*?"<>|]/g, "");
+            return `gasmekcv_${sanitized}`;
+        }
+
+        function downloadPDF() {
+            const originalTitle = document.title;
+            const pdfFileName = buildPdfFileName();
+            document.title = pdfFileName;
+
+            showToast(`"${pdfFileName}.pdf" olarak kaydedilmeye hazır...`);
+
+            const restoreTitle = () => {
+                document.title = originalTitle;
+                window.removeEventListener("afterprint", restoreTitle);
+            };
+            window.addEventListener("afterprint", restoreTitle);
+
+            setTimeout(() => {
+                window.print();
+                setTimeout(restoreTitle, 1500);
+            }, 350);
+        }
+
+        // Dolu kayıtları filtreleme yardımcıları
+        function getValidEducations() {
+            return appState.educations.filter(e => e.school.trim() || e.department.trim());
+        }
+        function getValidExperiences() {
+            return appState.experiences.filter(e => e.company.trim() || e.role.trim());
+        }
+        function getValidCertificates() {
+            return appState.certificates.filter(c => c.title.trim());
+        }
+        function getValidLanguages() {
+            return (appState.languages || []).filter(l => l.name && l.name.trim());
+        }
+        function getValidReferences() {
+            return (appState.references || []).filter(r => r.name && r.name.trim());
+        }
+
+        function renderCVSheet() {
+            const sheet = document.getElementById("cv-sheet");
+            const tpl = appState.selectedTemplate || "classic";
+            sheet.className = `tpl-${tpl}`;
+
+            const name = escapeHTML(appState.fullName || "AD SOYAD");
+            const role = escapeHTML(appState.jobTitle || "");
+            const photoHTML = appState.photo ? `<img src="${appState.photo}" class="cv-photo-img" alt="${name}">` : "";
+
+            const contactList = [
+                appState.phone ? `📞 ${escapeHTML(appState.phone)}` : "",
+                appState.email ? `✉️ ${escapeHTML(appState.email)}` : "",
+                appState.city ? `📍 ${escapeHTML(appState.city)}` : "",
+                appState.birthDate ? `🎂 Doğum: ${escapeHTML(appState.birthDate)}` : "",
+                appState.driverLicense ? `🚗 Ehliyet: ${escapeHTML(appState.driverLicense)}` : "",
+                appState.militaryStatus ? `🎖️ Askerlik: ${escapeHTML(appState.militaryStatus)}` : ""
+            ].filter(Boolean);
+
+            const edus = getValidEducations();
+            const exps = getValidExperiences();
+            const certs = getValidCertificates();
+            const langs = getValidLanguages();
+            const refs = getValidReferences();
+
+            // ------------------------------------------------------------------
+            // ŞABLON 1: KLASİK KURUMSAL
+            // ------------------------------------------------------------------
+            if (tpl === "classic") {
+                sheet.innerHTML = `
+                    <div class="c-header">
+                        ${photoHTML}
+                        <div style="flex:1;">
+                            <div class="c-name">${name}</div>
+                            ${role ? `<div class="c-role">${role}</div>` : `<div style="height:6px;"></div>`}
+                            <div class="c-meta">${contactList.map(c => `<span>${c}</span>`).join("")}</div>
+                        </div>
+                    </div>
+
+                    ${appState.summary ? `
+                        <div class="cv-section-block">
+                            <div class="c-sec-title">Kariyer Hedefi & Özet</div>
+                            <div class="cv-item-desc">${escapeHTML(appState.summary)}</div>
+                        </div>
+                    ` : ""}
+
+                    ${exps.length ? `
+                        <div class="cv-section-block">
+                            <div class="c-sec-title">İş Deneyimi</div>
+                            ${exps.map(e => `
+                                <div class="cv-item-row">
+                                    <div class="cv-item-head">
+                                        <span>${escapeHTML(e.role)} — <span style="color:#1e3a8a;">${escapeHTML(e.company)}</span></span>
+                                        <span class="cv-date-pill" style="color:#475569;">${escapeHTML(e.period)}</span>
+                                    </div>
+                                    ${e.desc ? `<div class="cv-item-desc">${escapeHTML(e.desc)}</div>` : ""}
+                                </div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+
+                    ${edus.length ? `
+                        <div class="cv-section-block">
+                            <div class="c-sec-title">Eğitim Bilgileri</div>
+                            ${edus.map(ed => `
+                                <div class="cv-item-row">
+                                    <div class="cv-item-head">
+                                        <span>${escapeHTML(ed.school)}</span>
+                                        <span class="cv-date-pill" style="color:#475569;">${escapeHTML(ed.year)}</span>
+                                    </div>
+                                    <div class="cv-item-sub" style="color:#334155;">${escapeHTML(ed.department)}</div>
+                                </div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+
+                    ${appState.skills.length ? `
+                        <div class="cv-section-block">
+                            <div class="c-sec-title">Bilgisayar ve Mesleki Beceriler</div>
+                            <div>${appState.skills.map(s => `<span class="c-skill-badge">${escapeHTML(s)}</span>`).join("")}</div>
+                        </div>
+                    ` : ""}
+
+                    ${certs.length ? `
+                        <div class="cv-section-block">
+                            <div class="c-sec-title">Sertifikalar & Kurslar</div>
+                            ${certs.map(c => `
+                                <div class="cv-item-row">
+                                    <div class="cv-item-head">
+                                        <span>${escapeHTML(c.title)}</span>
+                                        <span class="cv-date-pill">${escapeHTML(c.year)}</span>
+                                    </div>
+                                    ${c.issuer ? `<div class="cv-item-sub" style="color:#475569;">${escapeHTML(c.issuer)}</div>` : ""}
+                                </div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+
+                    ${(langs.length || refs.length) ? `
+                        <div class="cv-section-block" style="display:grid; grid-template-columns:${langs.length && refs.length ? "1fr 1fr" : "1fr"}; gap:16px;">
+                            ${langs.length ? `
+                                <div>
+                                    <div class="c-sec-title">Yabancı Dil</div>
+                                    ${langs.map(l => `<div class="cv-item-desc"><strong>${escapeHTML(l.name)}:</strong> ${escapeHTML(l.level)}</div>`).join("")}
+                                </div>
+                            ` : ""}
+                            ${refs.length ? `
+                                <div>
+                                    <div class="c-sec-title">Referanslar</div>
+                                    ${refs.map(r => `<div class="cv-item-desc"><strong>${escapeHTML(r.name)}</strong>${r.title ? ` — ${escapeHTML(r.title)}` : ""}${r.contact ? ` (${escapeHTML(r.contact)})` : ""}</div>`).join("")}
+                                </div>
+                            ` : ""}
+                        </div>
+                    ` : ""}
+                `;
+            }
+
+            // ------------------------------------------------------------------
+            // ŞABLON 2: MODERN İKİ SÜTUNLU
+            // ------------------------------------------------------------------
+            else if (tpl === "modern") {
+                sheet.innerHTML = `
+                    <aside class="m-sidebar">
+                        ${photoHTML}
+                        <div class="m-side-title">İletişim & Kişisel</div>
+                        ${appState.phone ? `<div class="m-contact-item"><strong>Telefon</strong>${escapeHTML(appState.phone)}</div>` : ""}
+                        ${appState.email ? `<div class="m-contact-item"><strong>E-Posta</strong>${escapeHTML(appState.email)}</div>` : ""}
+                        ${appState.city ? `<div class="m-contact-item"><strong>Konum</strong>${escapeHTML(appState.city)}</div>` : ""}
+                        ${appState.birthDate ? `<div class="m-contact-item"><strong>Doğum Tarihi</strong>${escapeHTML(appState.birthDate)}</div>` : ""}
+                        ${appState.driverLicense ? `<div class="m-contact-item"><strong>Ehliyet</strong>${escapeHTML(appState.driverLicense)}</div>` : ""}
+                        ${appState.militaryStatus ? `<div class="m-contact-item"><strong>Askerlik</strong>${escapeHTML(appState.militaryStatus)}</div>` : ""}
+
+                        ${appState.skills.length ? `
+                            <div class="m-side-title">Bilgisayar Becerileri</div>
+                            ${appState.skills.map(s => `<span class="m-skill-pill">${escapeHTML(s)}</span>`).join("")}
+                        ` : ""}
+
+                        ${langs.length ? `
+                            <div class="m-side-title">Yabancı Dil</div>
+                            ${langs.map(l => `<div class="m-contact-item"><strong>${escapeHTML(l.name)}</strong>${escapeHTML(l.level)}</div>`).join("")}
+                        ` : ""}
+                    </aside>
+
+                    <div class="m-main">
+                        <div class="m-name">${name}</div>
+                        ${role ? `<div class="m-role">${role}</div>` : `<div style="margin:6px 0 14px; border-bottom:2px solid #e2e8f0;"></div>`}
+
+                        ${appState.summary ? `
+                            <div class="cv-section-block">
+                                <div class="m-sec-title">Hakkımda</div>
+                                <div class="cv-item-desc">${escapeHTML(appState.summary)}</div>
+                            </div>
+                        ` : ""}
+
+                        ${exps.length ? `
+                            <div class="cv-section-block">
+                                <div class="m-sec-title">İş Deneyimi</div>
+                                ${exps.map(e => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span>${escapeHTML(e.role)}</span>
+                                            <span class="cv-date-pill" style="color:#0d9488;">${escapeHTML(e.period)}</span>
+                                        </div>
+                                        <div class="cv-item-sub" style="color:#475569;">${escapeHTML(e.company)}</div>
+                                        ${e.desc ? `<div class="cv-item-desc">${escapeHTML(e.desc)}</div>` : ""}
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+
+                        ${edus.length ? `
+                            <div class="cv-section-block">
+                                <div class="m-sec-title">Eğitim Bilgileri</div>
+                                ${edus.map(ed => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span>${escapeHTML(ed.school)}</span>
+                                            <span class="cv-date-pill" style="color:#0d9488;">${escapeHTML(ed.year)}</span>
+                                        </div>
+                                        <div class="cv-item-sub" style="color:#475569;">${escapeHTML(ed.department)}</div>
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+
+                        ${certs.length ? `
+                            <div class="cv-section-block">
+                                <div class="m-sec-title">Sertifikalar</div>
+                                ${certs.map(c => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span>${escapeHTML(c.title)}</span>
+                                            <span class="cv-date-pill">${escapeHTML(c.year)}</span>
+                                        </div>
+                                        ${c.issuer ? `<div class="cv-item-sub" style="color:#475569;">${escapeHTML(c.issuer)}</div>` : ""}
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+
+                        ${refs.length ? `
+                            <div class="cv-section-block">
+                                <div class="m-sec-title">Referanslar</div>
+                                ${refs.map(r => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span>${escapeHTML(r.name)}</span>
+                                            <span class="cv-date-pill">${escapeHTML(r.contact)}</span>
+                                        </div>
+                                        ${r.title ? `<div class="cv-item-sub" style="color:#475569;">${escapeHTML(r.title)}</div>` : ""}
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+                    </div>
+                `;
+            }
+
+            // ------------------------------------------------------------------
+            // ŞABLON 3: MİNİMALİST & ATS UYUMLU
+            // ------------------------------------------------------------------
+            else if (tpl === "minimal") {
+                const plainContacts = [
+                    appState.phone,
+                    appState.email,
+                    appState.city,
+                    appState.birthDate ? `Doğum: ${appState.birthDate}` : "",
+                    appState.driverLicense ? `Ehliyet: ${appState.driverLicense}` : "",
+                    appState.militaryStatus ? `Askerlik: ${appState.militaryStatus}` : ""
+                ].filter(Boolean).map(escapeHTML).join("  •  ");
+
+                sheet.innerHTML = `
+                    <div class="min-header">
+                        ${photoHTML}
+                        <div class="min-name">${name}</div>
+                        ${role ? `<div class="min-role">${role}</div>` : `<div style="height:4px;"></div>`}
+                        <div class="min-meta">${plainContacts}</div>
+                    </div>
+
+                    ${appState.summary ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">Profesyonel Özet</div>
+                            <div class="cv-item-desc">${escapeHTML(appState.summary)}</div>
+                        </div>
+                    ` : ""}
+
+                    ${exps.length ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">İş Deneyimi</div>
+                            ${exps.map(e => `
+                                <div class="cv-item-row">
+                                    <div class="cv-item-head">
+                                        <span>${escapeHTML(e.role)} | ${escapeHTML(e.company)}</span>
+                                        <span class="cv-date-pill">${escapeHTML(e.period)}</span>
+                                    </div>
+                                    ${e.desc ? `<div class="cv-item-desc" style="margin-top:3px;">${escapeHTML(e.desc)}</div>` : ""}
+                                </div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+
+                    ${edus.length ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">Eğitim</div>
+                            ${edus.map(ed => `
+                                <div class="cv-item-row">
+                                    <div class="cv-item-head">
+                                        <span>${escapeHTML(ed.school)} — ${escapeHTML(ed.department)}</span>
+                                        <span class="cv-date-pill">${escapeHTML(ed.year)}</span>
+                                    </div>
+                                </div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+
+                    ${appState.skills.length ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">Bilgisayar ve Mesleki Yetkinlikler</div>
+                            <div class="cv-item-desc">${appState.skills.map(escapeHTML).join(" • ")}</div>
+                        </div>
+                    ` : ""}
+
+                    ${certs.length ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">Sertifikalar ve Kurslar</div>
+                            ${certs.map(c => `
+                                <div class="cv-item-row">
+                                    <div class="cv-item-head">
+                                        <span>${escapeHTML(c.title)} ${c.issuer ? `(${escapeHTML(c.issuer)})` : ""}</span>
+                                        <span class="cv-date-pill">${escapeHTML(c.year)}</span>
+                                    </div>
+                                </div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+
+                    ${langs.length ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">Yabancı Dil Bilgisi</div>
+                            <div class="cv-item-desc">${langs.map(l => `<strong>${escapeHTML(l.name)}</strong> (${escapeHTML(l.level)})`).join("  •  ")}</div>
+                        </div>
+                    ` : ""}
+
+                    ${refs.length ? `
+                        <div class="cv-section-block">
+                            <div class="min-sec-title">Referanslar</div>
+                            ${refs.map(r => `
+                                <div class="cv-item-desc"><strong>${escapeHTML(r.name)}</strong>${r.title ? ` — ${escapeHTML(r.title)}` : ""}${r.contact ? ` | ${escapeHTML(r.contact)}` : ""}</div>
+                            `).join("")}
+                        </div>
+                    ` : ""}
+                `;
+            }
+
+            // ------------------------------------------------------------------
+            // ŞABLON 4: YARATICI & DİNAMİK (BORDO & ALTIN)
+            // ------------------------------------------------------------------
+            else if (tpl === "creative") {
+                sheet.innerHTML = `
+                    <div class="cr-banner">
+                        <div style="flex:1;">
+                            <div class="cr-name">${name}</div>
+                            ${role ? `<div class="cr-role">${role}</div>` : `<div style="height:6px;"></div>`}
+                            <div class="cr-meta">${contactList.map(c => `<span>${c}</span>`).join("")}</div>
+                        </div>
+                        ${photoHTML}
+                    </div>
+
+                    <div class="cr-body">
+                        ${appState.summary ? `
+                            <div class="cv-section-block">
+                                <div class="cr-sec-title">Kariyer Profili</div>
+                                <div class="cv-item-desc">${escapeHTML(appState.summary)}</div>
+                            </div>
+                        ` : ""}
+
+                        ${exps.length ? `
+                            <div class="cv-section-block">
+                                <div class="cr-sec-title">İş Deneyimi</div>
+                                ${exps.map(e => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span style="color:#7f1d1d;">${escapeHTML(e.role)} • ${escapeHTML(e.company)}</span>
+                                            <span class="cv-date-pill" style="color:#b45309;">${escapeHTML(e.period)}</span>
+                                        </div>
+                                        ${e.desc ? `<div class="cv-item-desc">${escapeHTML(e.desc)}</div>` : ""}
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+
+                        ${edus.length ? `
+                            <div class="cv-section-block">
+                                <div class="cr-sec-title">Eğitim Bilgileri</div>
+                                ${edus.map(ed => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span>${escapeHTML(ed.school)}</span>
+                                            <span class="cv-date-pill" style="color:#b45309;">${escapeHTML(ed.year)}</span>
+                                        </div>
+                                        <div class="cv-item-sub">${escapeHTML(ed.department)}</div>
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+
+                        ${appState.skills.length ? `
+                            <div class="cv-section-block">
+                                <div class="cr-sec-title">Bilgisayar & Ofis Yetkinlikleri</div>
+                                <div>${appState.skills.map(s => `<span class="cr-skill">${escapeHTML(s)}</span>`).join("")}</div>
+                            </div>
+                        ` : ""}
+
+                        ${certs.length ? `
+                            <div class="cv-section-block">
+                                <div class="cr-sec-title">Sertifikalar</div>
+                                ${certs.map(c => `
+                                    <div class="cv-item-row">
+                                        <div class="cv-item-head">
+                                            <span>${escapeHTML(c.title)}</span>
+                                            <span class="cv-date-pill">${escapeHTML(c.year)}</span>
+                                        </div>
+                                        ${c.issuer ? `<div class="cv-item-sub" style="color:#4b5563;">${escapeHTML(c.issuer)}</div>` : ""}
+                                    </div>
+                                `).join("")}
+                            </div>
+                        ` : ""}
+
+                        ${(langs.length || refs.length) ? `
+                            <div style="display:grid; grid-template-columns:${langs.length && refs.length ? "1fr 1fr" : "1fr"}; gap:14px;">
+                                ${langs.length ? `
+                                    <div>
+                                        <div class="cr-sec-title">Yabancı Dil</div>
+                                        ${langs.map(l => `<div class="cv-item-desc"><strong>${escapeHTML(l.name)}:</strong> ${escapeHTML(l.level)}</div>`).join("")}
+                                    </div>
+                                ` : ""}
+                                ${refs.length ? `
+                                    <div>
+                                        <div class="cr-sec-title">Referanslar</div>
+                                        ${refs.map(r => `<div class="cv-item-desc"><strong>${escapeHTML(r.name)}</strong>${r.title ? ` — ${escapeHTML(r.title)}` : ""}${r.contact ? ` (${escapeHTML(r.contact)})` : ""}</div>`).join("")}
+                                    </div>
+                                ` : ""}
+                            </div>
+                        ` : ""}
+                    </div>
+                `;
+            }
+
+            // ------------------------------------------------------------------
+            // ŞABLON 5: YÖNETİCİ & PRESTİJ (KOYU ZÜMRÜT YEŞİLİ)
+            // ------------------------------------------------------------------
+            else if (tpl === "executive") {
+                sheet.innerHTML = `
+                    <div class="ex-header">
+                        <div style="flex:1;">
+                            <div class="ex-name">${name}</div>
+                            ${role ? `<div class="ex-role">${role}</div>` : `<div style="height:6px;"></div>`}
+                            <div class="ex-meta-grid">${contactList.map(c => `<span>${c}</span>`).join("")}</div>
+                        </div>
+                        ${photoHTML}
+                    </div>
+
+                    ${appState.summary ? `
+                        <div class="cv-section-block">
+                            <div class="ex-sec-title">Yönetici Özeti & Kariyer Hedefi</div>
+                            <div class="cv-item-desc">${escapeHTML(appState.summary)}</div>
+                        </div>
+                    ` : ""}
+
+                    <div class="ex-two-col">
+                        <div>
+                            ${exps.length ? `
+                                <div class="cv-section-block">
+                                    <div class="ex-sec-title">Profesyonel İş Deneyimi</div>
+                                    ${exps.map(e => `
+                                        <div class="cv-item-row">
+                                            <div class="cv-item-head">
+                                                <span style="color:#064e3b;">${escapeHTML(e.role)}</span>
+                                                <span class="cv-date-pill" style="color:#047857;">${escapeHTML(e.period)}</span>
+                                            </div>
+                                            <div class="cv-item-sub" style="color:#374151;">${escapeHTML(e.company)}</div>
+                                            ${e.desc ? `<div class="cv-item-desc">${escapeHTML(e.desc)}</div>` : ""}
+                                        </div>
+                                    `).join("")}
+                                </div>
+                            ` : ""}
+
+                            ${edus.length ? `
+                                <div class="cv-section-block">
+                                    <div class="ex-sec-title">Eğitim Geçmişi</div>
+                                    ${edus.map(ed => `
+                                        <div class="cv-item-row">
+                                            <div class="cv-item-head">
+                                                <span>${escapeHTML(ed.school)}</span>
+                                                <span class="cv-date-pill" style="color:#047857;">${escapeHTML(ed.year)}</span>
+                                            </div>
+                                            <div class="cv-item-sub">${escapeHTML(ed.department)}</div>
+                                        </div>
+                                    `).join("")}
+                                </div>
+                            ` : ""}
+
+                            ${certs.length ? `
+                                <div class="cv-section-block">
+                                    <div class="ex-sec-title">Sertifikalar & Mesleki Eğitimler</div>
+                                    ${certs.map(c => `
+                                        <div class="cv-item-row">
+                                            <div class="cv-item-head">
+                                                <span>${escapeHTML(c.title)}</span>
+                                                <span class="cv-date-pill">${escapeHTML(c.year)}</span>
+                                            </div>
+                                            ${c.issuer ? `<div class="cv-item-sub" style="color:#4b5563;">${escapeHTML(c.issuer)}</div>` : ""}
+                                        </div>
+                                    `).join("")}
+                                </div>
+                            ` : ""}
+                        </div>
+
+                        <div>
+                            ${appState.skills.length ? `
+                                <div class="ex-side-box">
+                                    <div class="ex-sec-title">Temel Beceriler</div>
+                                    <ul style="padding-left:16px; font-size:8.8pt; line-height:1.55;">
+                                        ${appState.skills.map(s => `<li>${escapeHTML(s)}</li>`).join("")}
+                                    </ul>
+                                </div>
+                            ` : ""}
+
+                            ${langs.length ? `
+                                <div class="ex-side-box">
+                                    <div class="ex-sec-title">Yabancı Dil</div>
+                                    ${langs.map(l => `<div style="font-size:8.8pt; margin-bottom:4px;"><strong>${escapeHTML(l.name)}:</strong> ${escapeHTML(l.level)}</div>`).join("")}
+                                </div>
+                            ` : ""}
+
+                            ${refs.length ? `
+                                <div class="ex-side-box">
+                                    <div class="ex-sec-title">Referanslar</div>
+                                    ${refs.map(r => `
+                                        <div style="font-size:8.5pt; line-height:1.4; margin-bottom:6px;">
+                                            <strong>${escapeHTML(r.name)}</strong>
+                                            ${r.title ? `<div>${escapeHTML(r.title)}</div>` : ""}
+                                            ${r.contact ? `<div style="color:#065f46;">${escapeHTML(r.contact)}</div>` : ""}
+                                        </div>
+                                    `).join("")}
+                                </div>
+                            ` : ""}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
